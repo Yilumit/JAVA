@@ -1,9 +1,11 @@
 package SistemaContaCorrente;
 
+import java.io.IOException;
+
 import javax.swing.JOptionPane;
 
 public class MenuContas {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         Conta conta[] = new Conta[5];
         Movimento movimento[] = new Movimento[10];
         MetodosContas cMetodos = new MetodosContas();
@@ -28,7 +30,7 @@ public class MenuContas {
                     if (validar==0) {
                         JOptionPane.showMessageDialog(null, "É necessário fazer o cadastro da Conta!");
                     } else {
-                        movimento = cMetodos.CadastroMovimento(movimento);
+                        movimento = cMetodos.CadastroMovimento(movimento, conta);
                         validar = 2;
                     }
                     break;
